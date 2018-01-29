@@ -1,4 +1,5 @@
 ﻿using Hope.Core;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Hope.Data

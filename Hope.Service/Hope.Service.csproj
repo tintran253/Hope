@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8892BA18-B3F1-4C43-B97A-876926D44940}</ProjectGuid>
+    <ProjectGuid>{A846208D-6883-4FB9-BF6D-C2AFB2350E45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hope.Core</RootNamespace>
-    <AssemblyName>Hope.Core</AssemblyName>
+    <RootNamespace>Hope.Service</RootNamespace>
+    <AssemblyName>Hope.Service</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Domain\Article.cs" />
-    <Compile Include="Domain\Comment.cs" />
-    <Compile Include="Domain\Composer.cs" />
-    <Compile Include="Domain\Rate.cs" />
-    <Compile Include="Domain\Reader.cs" />
-    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

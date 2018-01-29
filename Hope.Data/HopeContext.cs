@@ -1,7 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using Hope.Core;
 using Hope.Data.Mapping;
-//using Microsoft.EntityFrameworkCore;
 namespace Hope.Data
 {
     public class HopeContext : DbContext, IDbContext

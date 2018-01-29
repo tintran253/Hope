@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Hope.Core
 {
@@ -9,6 +7,7 @@ namespace Hope.Core
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime Published { get; set; }
+
         public int ComposerId { get; set; }
         public virtual Composer Composer { get; set; }
     }
