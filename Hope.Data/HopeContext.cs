@@ -14,6 +14,7 @@ namespace Hope.Data
         {
             modelBuilder.Configurations.Add(new ArticleMap());
             modelBuilder.Configurations.Add(new ComposerMap());
+            modelBuilder.Configurations.Add(new ReaderMap());
             base.OnModelCreating(modelBuilder);
         }
 

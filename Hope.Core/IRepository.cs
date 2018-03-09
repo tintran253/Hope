@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Hope.Core
 {
@@ -14,4 +16,5 @@ namespace Hope.Core
         void Delete(IEnumerable<T> entities);
         IQueryable<T> Table { get; }
     }
+
 }

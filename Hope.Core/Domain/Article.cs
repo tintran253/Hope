@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Hope.Core
 {
-    public class Article : BaseEntity
+    public class Article
     {
         public string Title { get; set; }
         public string Content { get; set; }
@@ -10,5 +12,6 @@ namespace Hope.Core
 
         public int ComposerId { get; set; }
         public virtual Composer Composer { get; set; }
+
     }
 }
