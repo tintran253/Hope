@@ -1,55 +1,159 @@
 ﻿using Hope.Core;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace Hope.Data
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly IDbContext _context;
-        private IDbSet<T> _entities;
+        private readonly HopeContext _context;
+        private DbSet<T> _entities;
 
-        public Repository(IDbContext context)
+        public Repository(HopeContext context)
         {
             this._context = context;
         }
-        public IQueryable<T> Table => throw new NotImplementedException();
+
+        /// <summary>
+        /// Entities
+        /// </summary>
+        protected virtual DbSet<T> Entities
+        {
+            get
+            {
+                if (_entities == null)
+                    _entities = _context.Set<T>();
+                return _entities;
+            }
+        }
+
+        public DbSet<T> Table
+        {
+            get
+            {
+                return Entities;
+            }
+        }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entity == null)
+                    throw new ArgumentNullException(nameof(entity));
+
+                Entities.Remove(entity);
+
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                //ensure that the detailed error text is saved in the Log
+                //throw new Exception(GetFullErrorTextAndRollbackEntityChanges(dbEx), dbEx);
+                throw dbEx;
+            }
         }
 
         public void Delete(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entities == null)
+                    throw new ArgumentNullException(nameof(entities));
+
+                foreach (var entity in entities)
+                    Entities.Remove(entity);
+
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                //ensure that the detailed error text is saved in the Log
+                //throw new Exception(GetFullErrorTextAndRollbackEntityChanges(dbEx), dbEx);
+                throw dbEx;
+            }
         }
 
-        public T GetById(object Id)
+        public T GetById(object id)
         {
-            throw new NotImplementedException();
+            //see some suggested performance optimization (not tested)
+            //http://stackoverflow.com/questions/11686225/dbset-find-method-ridiculously-slow-compared-to-singleordefault-on-id/11688189#comment34876113_11688189
+            return Entities.Find(id);
         }
 
         public void Insert(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entity == null)
+                    throw new ArgumentNullException(nameof(entity));
+
+                Entities.Add(entity);
+
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                //ensure that the detailed error text is saved in the Log
+                throw dbEx;
+                //throw new Exception(GetFullErrorTextAndRollbackEntityChanges(dbEx), dbEx);
+            }
         }
 
         public void Insert(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entities == null)
+                    throw new ArgumentNullException(nameof(entities));
+
+                foreach (var entity in entities)
+                    Entities.Add(entity);
+
+                _context.SaveChanges();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                //ensure that the detailed error text is saved in the Log
+                //throw new Exception(GetFullErrorTextAndRollbackEntityChanges(dbEx), dbEx);
+
+                throw dbEx;
+            }
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entity == null)
+                    throw new ArgumentNullException(nameof(entity));
+
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void Update(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (entities == null)
+                    throw new ArgumentNullException(nameof(entities));
+
+                _context.SaveChanges();
+            }
+            catch (Exception dbEx)
+            {
+                //ensure that the detailed error text is saved in the Log
+                //throw new Exception(GetFullErrorTextAndRollbackEntityChanges(dbEx), dbEx);
+                throw dbEx;
+            }
         }
+
     }
 }

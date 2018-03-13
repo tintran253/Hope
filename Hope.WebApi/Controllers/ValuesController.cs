@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hope.Core;
+using Hope.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hope.WebApi.Controllers
@@ -9,6 +11,12 @@ namespace Hope.WebApi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly IComposerService _composerService;
+        public ValuesController(IComposerService composerService)
+        {
+            _composerService = composerService;
+        }
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -18,9 +26,9 @@ namespace Hope.WebApi.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Composer Get(int id)
         {
-            return "value";
+            return this._composerService.GetById(id);
         }
 
         // POST api/values

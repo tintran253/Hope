@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hope.Core
 {
-    public class Article
+    public class Article : BaseEntity
     {
         public string Title { get; set; }
         public string Content { get; set; }

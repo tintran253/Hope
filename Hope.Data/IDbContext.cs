@@ -1,12 +1,12 @@
 ﻿using Hope.Core;
-using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Hope.Data
 {
     public interface IDbContext
     {
-        IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
+        //DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
         int SaveChanges();
     }
 }
