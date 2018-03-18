@@ -155,5 +155,18 @@ namespace Hope.Data
             }
         }
 
+        public IEnumerable<T> GetAll()
+        {
+            try
+            {
+                return Entities.AsEnumerable();
+            }
+            catch (Exception dbEx)
+            {
+                //ensure that the detailed error text is saved in the Log
+                //throw new Exception(GetFullErrorTextAndRollbackEntityChanges(dbEx), dbEx);
+                throw dbEx;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace Hope.Core
     public interface IRepository<T> where T : BaseEntity
     {
         T GetById(object id);
+        IEnumerable<T> GetAll();
         void Insert(T entity);
         void Insert(IEnumerable<T> entities);
         void Update(T entity);

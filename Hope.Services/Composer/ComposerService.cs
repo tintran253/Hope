@@ -31,7 +31,14 @@ namespace Hope.Services
 
         public IEnumerable<Composer> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return this._composerRepo.GetAll();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public Composer GetById(int id)

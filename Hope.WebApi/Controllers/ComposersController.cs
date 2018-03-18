@@ -8,20 +8,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hope.WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Produces("application/json")]
+    [Route("api/Composers")]
+    public class ComposersController : Controller
     {
         private readonly IComposerService _composerService;
-        public ValuesController(IComposerService composerService)
+        public ComposersController(IComposerService composerService)
         {
             _composerService = composerService;
         }
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Composer> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return this._composerService.GetAll();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // GET api/values/5

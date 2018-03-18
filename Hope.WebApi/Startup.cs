@@ -34,13 +34,24 @@ namespace Hope.WebApi
         {            
             services.AddMvc();
 
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+                options.AutomaticAuthentication = true;                
+            });
 
-            var connection = @"Server=DESKTOP-BO0G9VS\SQLEXPRESS;Database=Hope;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Data Source=DESKTOP-BO0G9VS\SQLEXPRESS;Initial Catalog=Hope;User ID=sa;Password=Trong@123";
             services.AddDbContext<HopeContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IRepository<Composer>, Repository<Composer>>();
+            services.AddScoped<IRepository<Article>, Repository<Article>>();
+            services.AddScoped<IRepository<Reader>, Repository<Reader>>();
 
             services.AddTransient<IComposerService, ComposerService>();
+            services.AddTransient<IArticleService, ArticleService>();
+            services.AddTransient<IReaderService, ReaderService>();
+            //services.AddTransient<ICommentService, CommentService>();
+            //services.AddTransient<IComposerService, ComposerService>();
 
 
             //// Create the container builder.
