@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Rate\" />
+    <Folder Include="SignalR\" />
   </ItemGroup>
 
   <ItemGroup>

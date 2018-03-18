@@ -8,6 +8,7 @@ using Autofac.Extensions.DependencyInjection;
 using Hope.Core;
 using Hope.Data;
 using Hope.Services;
+using Hope.WebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,9 @@ namespace Hope.WebApi
         public void ConfigureServices(IServiceCollection services)
         {            
             services.AddMvc();
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:2503"); }));
+            services.AddSignalR();
+
 
             services.Configure<IISOptions>(options =>
             {
@@ -83,6 +87,13 @@ namespace Hope.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chathub");
+            });
 
             app.UseMvc();
         }
