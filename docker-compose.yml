@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  hope.webapi:
+    image: hopewebapi
+    build:
+      context: .
+      dockerfile: Hope.WebApi\Dockerfile
