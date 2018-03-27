@@ -5,4 +5,4 @@ services:
     image: hopewebapi
     build:
       context: .
-      dockerfile: Hope.WebApi\Dockerfile
+      dockerfile: Dockerfile

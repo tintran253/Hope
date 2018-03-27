@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Hope.Core\Hope.Core.csproj" />
   </ItemGroup>
 
