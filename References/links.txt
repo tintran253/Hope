@@ -1,0 +1,5 @@
+Docker doc:
+    https://docs.docker.com/docker-for-windows/#test-your-installation
+
+Docker doc from asp.net:
+    https://docs.microsoft.com/en-us/dotnet/core/docker/building-net-docker-images
