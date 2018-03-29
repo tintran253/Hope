@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
-using Hope.Core;
+﻿using Hope.Core;
 using Hope.Data;
 using Hope.Services;
 using Hope.WebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace Hope.WebApi
 {
@@ -44,8 +34,8 @@ namespace Hope.WebApi
                 options.AutomaticAuthentication = true;                
             });
 
-            var connection = @"Data Source=DESKTOP-BO0G9VS\SQLEXPRESS;Initial Catalog=Hope;User ID=sa;Password=Trong@123";
-            services.AddDbContext<HopeContext>(options => options.UseSqlServer(connection));
+            var connection = @"Data Source=.\TINTRAN;Initial Catalog=Hope;User ID=sa;Password=Trong@123";            
+            //services.AddDbContext<HopeContext>(options => options.UseSqlServer(connection));
 
             services.AddScoped<IRepository<Composer>, Repository<Composer>>();
             services.AddScoped<IRepository<Article>, Repository<Article>>();

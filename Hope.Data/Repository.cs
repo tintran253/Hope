@@ -1,17 +1,18 @@
 ﻿using Hope.Core;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace Hope.Data
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly HopeContext _context;
-        private DbSet<T> _entities;
+        private readonly IDbContext _context;
+        private IDbSet<T> _entities;
 
-        public Repository(HopeContext context)
+        public Repository(IDbContext context)
         {
             this._context = context;
         }
@@ -19,7 +20,7 @@ namespace Hope.Data
         /// <summary>
         /// Entities
         /// </summary>
-        protected virtual DbSet<T> Entities
+        protected virtual IDbSet<T> Entities
         {
             get
             {
@@ -29,13 +30,14 @@ namespace Hope.Data
             }
         }
 
-        public DbSet<T> Table
+        public virtual IQueryable<T> Table
         {
             get
             {
                 return Entities;
             }
         }
+
 
         public void Delete(T entity)
         {
@@ -155,11 +157,11 @@ namespace Hope.Data
             }
         }
 
-        public IEnumerable<T> GetAll()
+        public IList<T> GetAll()
         {
             try
             {
-                return Entities.AsEnumerable();
+                return Table.ToList();
             }
             catch (Exception dbEx)
             {

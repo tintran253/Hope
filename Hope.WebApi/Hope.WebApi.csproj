@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hope.Data\Hope.Data.csproj" />
-    <ProjectReference Include="..\Hope.Services\Hope.Services.csproj" />
+    <ProjectReference Include="..\Hope.Service\Hope.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,13 +1,13 @@
 ﻿using Hope.Core;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Hope.Data
 {
-    //, IHopeContext
     public class HopeContext : DbContext, IDbContext
     {
-        public HopeContext(DbContextOptions<HopeContext> options) : base(options)
+        public HopeContext(string cnn) : base(cnn)
         {
 
         }
@@ -17,8 +17,8 @@ namespace Hope.Data
         public DbSet<Composer> Composers { get; set; }
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Reader> Readers { get; set; }
-
-
+        public DbSet<User> Users { get; set; }
+        public DbSet<Token> Tokens { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
@@ -28,14 +28,9 @@ namespace Hope.Data
         //    base.OnModelCreating(modelBuilder);
         //}
 
-        //public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
-        //{
-        //    return base.Set<TEntity>();
-        //}
-
-        //public new DbSet<TEntity> Set<TEntity>()
-        //{
-        //    return base.Set<TEntity>();
-        //}
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        {
+            return base.Set<TEntity>();
+        }
     }
 }

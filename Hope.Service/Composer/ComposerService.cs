@@ -29,11 +29,12 @@ namespace Hope.Services
             this._composerRepo.Update(composer);
         }
 
-        public IEnumerable<Composer> GetAll()
+        public IList<Composer> GetAll()
         {
             try
             {
-                return this._composerRepo.GetAll();
+                var rs = this._composerRepo.GetAll();
+                return rs;
             }
             catch (Exception ex)
             {

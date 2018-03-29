@@ -7,7 +7,7 @@ namespace Hope.Services
 {
     public interface IComposerService
     {
-        IEnumerable<Composer> GetAll();
+        IList<Composer> GetAll();
         Composer GetById(int id);
         void Add(Composer composer);
         void Edit(Composer composer);

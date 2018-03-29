@@ -1,9 +1,9 @@
 ﻿using Hope.Core;
-using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Hope.Data.Mapping
 {
-    public class ArticleMap : IEntityTypeConfiguration<Article>
+    public class ArticleMap : EntityTypeConfiguration<Article>
     {
         public ArticleMap()
         {            

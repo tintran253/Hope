@@ -1,0 +1,7 @@
+
+
+
+add:
+    Add-Migration InitialCreate
+update:
+    Update-Database
