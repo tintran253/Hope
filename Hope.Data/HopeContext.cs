@@ -7,6 +7,11 @@ namespace Hope.Data
 {
     public class HopeContext : DbContext, IDbContext
     {
+        public HopeContext()
+        {
+
+        }
+
         public HopeContext(string cnn) : base(cnn)
         {
 

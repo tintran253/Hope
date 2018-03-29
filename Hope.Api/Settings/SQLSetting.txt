@@ -1,0 +1,1 @@
+﻿Data Source=.\SQLEXPRESS;Initial Catalog=Hope;User ID=sa;Password=Trong@123

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hope.WebApi", "Hope.WebApi\Hope.WebApi.csproj", "{2A6BF6C3-BA5E-4ECC-96E9-154ED3AF0511}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{21372E7F-664D-4300-842B-65C07ADA0DD6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.Data", "Hope.Data\Hope.Data.csproj", "{C45B9F7D-503F-42BE-AFA7-8EC224418C18}"
@@ -13,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.Service", "Hope.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.Core", "Hope.Core\Hope.Core.csproj", "{0FC3814D-5B8A-4ECA-9019-D528F67F2DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.Api", "Hope.Api\Hope.Api.csproj", "{862AFD76-9222-4AFD-AC3B-5D1F7D644E61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hope.Api", "Hope.Api\Hope.Api.csproj", "{862AFD76-9222-4AFD-AC3B-5D1F7D644E61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2A6BF6C3-BA5E-4ECC-96E9-154ED3AF0511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A6BF6C3-BA5E-4ECC-96E9-154ED3AF0511}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A6BF6C3-BA5E-4ECC-96E9-154ED3AF0511}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A6BF6C3-BA5E-4ECC-96E9-154ED3AF0511}.Release|Any CPU.Build.0 = Release|Any CPU
 		{21372E7F-664D-4300-842B-65C07ADA0DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{21372E7F-664D-4300-842B-65C07ADA0DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21372E7F-664D-4300-842B-65C07ADA0DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU

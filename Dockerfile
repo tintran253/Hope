@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0-nanoserver-sac2016 AS build
 WORKDIR /src
-COPY Hope.sln ./
+COPY Hope.sln ./ 
 COPY Hope.WebApi/Hope.WebApi.csproj Hope.WebApi/
 COPY Hope.Data/Hope.Data.csproj Hope.Data/
 COPY Hope.Core/Hope.Core.csproj Hope.Core/

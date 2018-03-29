@@ -31,11 +31,10 @@ namespace Hope.Api
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:2503"); }));
             //services.AddSignalR();
 
-            var connection = @"Data Source=.\TINTRAN;Initial Catalog=Hope;User ID=sa;Password=Trong@123";
-            //services.AddDbContext<HopeContext>(options => options.UseSqlServer(connection));
-            services.AddScoped<IDbContext>(_ => new HopeContext(connection));
+            var connection = System.IO.File.ReadAllText("./Settings/SQLSetting.txt");
 
-            //services.AddScoped<IDbContext, new HopeContext(connection)>();
+            //services.AddScoped<IDbContext>(_ => new HopeContext(connection));
+            services.AddScoped<IDbContext>(_ => new HopeContext(@"Data Source=.\SQLEXPRESS;Initial Catalog=Hope;User ID=sa;Password=Trong@123"));
             //DI
             services.AddScoped<IRepository<Composer>, Repository<Composer>>();
             services.AddScoped<IRepository<Article>, Repository<Article>>();
