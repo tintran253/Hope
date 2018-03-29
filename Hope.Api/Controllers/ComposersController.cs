@@ -18,12 +18,11 @@ namespace Hope.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<Composer> Get()
+        public IActionResult Get()
         {
             try
             {
-                var rs = this._composerService.GetAll();
-                return rs;
+                return Ok(this._composerService.GetAll());
             }
             catch (Exception ex)
             {

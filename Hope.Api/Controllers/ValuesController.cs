@@ -20,9 +20,8 @@ namespace Hope.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var rs =  this._composerService.GetAll();
-            return Ok(rs);
-            //return new string[] { "value1", "value2" };
+   
+            return Ok(new string[] { "value1", "value2" });
         }
 
         // GET api/values/5

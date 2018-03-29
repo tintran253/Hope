@@ -38,7 +38,6 @@ namespace Hope.Data
             }
         }
 
-
         public void Delete(T entity)
         {
             try
