@@ -28,6 +28,9 @@ namespace Hope.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddIdentityServer()
+                    .AddDeveloperSigningCredential();
+
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:2503"); }));
             //services.AddSignalR();
 
@@ -52,6 +55,7 @@ namespace Hope.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseIdentityServer();
 
             app.UseCors("CorsPolicy");
 
