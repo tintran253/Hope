@@ -6,12 +6,11 @@ using Hope.Core;
 using Hope.Data;
 using Hope.Services;
 using Hope.WebApi.Services;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace Hope.Api
 {
@@ -28,8 +27,18 @@ namespace Hope.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddIdentityServer()
-                    .AddDeveloperSigningCredential();
+
+            services.AddAuthorization();
+
+            services.AddAuthentication("Bearer")
+            .AddIdentityServerAuthentication(options =>
+            {
+                options.Authority = "http://localhost:5000";
+                options.RequireHttpsMetadata = false;
+
+                options.ApiName = "api/composers";
+            });
+
 
             services.AddCors(options => options.AddPolicy("CorsPolicy", builder => { builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:2503"); }));
             //services.AddSignalR();
@@ -55,7 +64,7 @@ namespace Hope.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseIdentityServer();
+            app.UseAuthentication();
 
             app.UseCors("CorsPolicy");
 

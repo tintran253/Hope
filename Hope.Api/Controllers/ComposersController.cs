@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Hope.Core;
 using Hope.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hope.Api.Controllers
 {
     //[Produces("application/json")]
+    [Authorize]
     [Route("api/Composers")]
-    public class ComposersController : Controller
+    public class ComposersController : ControllerBase
     {
         private readonly IComposerService _composerService;
         public ComposersController(IComposerService composerService)
@@ -22,6 +25,8 @@ namespace Hope.Api.Controllers
         {
             try
             {
+                //return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+
                 return Ok(this._composerService.GetAll());
             }
             catch (Exception ex)

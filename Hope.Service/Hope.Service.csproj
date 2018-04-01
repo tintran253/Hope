@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Article\ArticleService.cs" />
     <Compile Include="Article\IArticleService.cs" />
+    <Compile Include="Auth\Client.cs" />
+    <Compile Include="Auth\IClient.cs" />
     <Compile Include="Chat\ChatService.cs" />
     <Compile Include="Comment\CommentService.cs" />
     <Compile Include="Comment\ICommentService.cs" />
