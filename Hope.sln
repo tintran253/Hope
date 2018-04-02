@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.Core", "Hope.Core\Hope
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hope.Api", "Hope.Api\Hope.Api.csproj", "{862AFD76-9222-4AFD-AC3B-5D1F7D644E61}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hope.IS4", "..\Hope.IS4\Hope.IS4.csproj", "{CE1DEFD8-A1DB-452C-A842-92E99AE2A271}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hope.IS4", "Hope.IS4\Hope.IS4.csproj", "{32A1D011-BB51-43E3-AB54-7BF5D044EF06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.ConsoleTest", "..\Hope.ConsoleTest\Hope.ConsoleTest.csproj", "{F667F965-10C4-441F-AD6C-6D88D0BD4A06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hope.ConsoleTest", "Hope.ConsoleTest\Hope.ConsoleTest.csproj", "{F667F965-10C4-441F-AD6C-6D88D0BD4A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{862AFD76-9222-4AFD-AC3B-5D1F7D644E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{862AFD76-9222-4AFD-AC3B-5D1F7D644E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{862AFD76-9222-4AFD-AC3B-5D1F7D644E61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE1DEFD8-A1DB-452C-A842-92E99AE2A271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE1DEFD8-A1DB-452C-A842-92E99AE2A271}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE1DEFD8-A1DB-452C-A842-92E99AE2A271}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE1DEFD8-A1DB-452C-A842-92E99AE2A271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A1D011-BB51-43E3-AB54-7BF5D044EF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A1D011-BB51-43E3-AB54-7BF5D044EF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A1D011-BB51-43E3-AB54-7BF5D044EF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A1D011-BB51-43E3-AB54-7BF5D044EF06}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F667F965-10C4-441F-AD6C-6D88D0BD4A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F667F965-10C4-441F-AD6C-6D88D0BD4A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F667F965-10C4-441F-AD6C-6D88D0BD4A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
